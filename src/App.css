@@ -1,0 +1,113 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #4a4a4a;
+  height: auto;
+  overflow: auto;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+
+  color: white;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.header {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.header p {
+  color: #e0e0e0;
+  margin-top: 0.5rem;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1500px;
+  gap: 1.5rem;
+  margin: 20px;
+  padding: 1rem;
+  justify-self: center;
+  align-self: center;
+  height: 480px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.grid-item {
+  background: linear-gradient(#cacaca, #1b1b1b);
+  border-radius: 10px;
+  border: #FFFFFF 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  position: relative;
+  overflow: auto;
+  height: 400px;
+  width: 210px;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.718);
+  transition: .5s ease;
+}
+
+.grid-container:hover .grid-item:not(:hover) {
+  opacity: 0.8;
+  filter: blur(0.8px);
+  transform: scale(0.85);
+}
+
+.grid-item h2 {
+  color: white;
+  font-size: 18.5px;
+  text-align: bottom;
+  z-index: 1;
+  padding-left: 10px;
+}
+
+.grid-item.span-2 {
+  grid-column: 1 / -1;
+  width: 300px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: minmax(200px, 300px);
+    gap: 1rem;
+  }
+
+  .grid-item.span-2 {
+    width: 100%;
+  }
+
+  .grid-item {
+    height: 180px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+}
