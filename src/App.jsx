@@ -1,28 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import ButtonDiv from '../src/components/button';
 
 function App() {
-  const handleClick = (project) => {
-    switch(project) {
-      case 'DFA/NFA':
-        window.open('https://example.com/dfa-nfa', '_blank');
-        break;
-      case 'PDA':
-        window.open('https://example.com/pda', '_blank');
-        break;
-      case 'CFG':
-        window.open('https://example.com/cfg', '_blank');
-        break;
-      case 'TURING':
-        window.open('https://example.com/turing', '_blank');
-        break;
-      case 'HANOI':
-        window.open('https://example.com/hanoi', '_blank');
-        break;
-      default:
-        break;
-    }
-  };
+  const [projects] = useState({
+    "DFA/NFA": "https://bolt.new/~/vitejs-vite-ahzmytnm",
+    "PDA": "https://chatgpt.com/c/67592b76-9f3c-800f-88ec-bc93a8de6ce4",
+    "CFG": "https://github.com/Luzeffle/CST4/tree/main/src/assets",
+    "TURING": "https://example.com/turing",
+    "HANOI": "https://example.com/hanoi",
+  });
 
   return (
     <div className="app">
@@ -31,21 +18,13 @@ function App() {
         <p>CST FINAL PROJECT</p>
       </div>
       <div className="grid-container">
-        <div className="grid-item" onClick={() => handleClick('DFA/NFA')}>
-          <h2>DFA/NFA</h2>
-        </div>
-        <div className="grid-item" onClick={() => handleClick('PDA')}>
-          <h2>PDA</h2>
-        </div>
-        <div className="grid-item" onClick={() => handleClick('CFG')}>
-          <h2>CFG</h2>
-        </div>
-        <div className="grid-item" onClick={() => handleClick('TURING')}>
-          <h2>TURING MACHINE</h2>
-        </div>
-        <div className="grid-item" onClick={() => handleClick('HANOI')}>
-          <h2>TOWER OF HANOI</h2>
-        </div>
+        {Object.keys(projects).map((project) => (
+          <ButtonDiv
+            key={project}
+            type={project}
+            handleClick={() => window.open(projects[project], '_blank')}
+          />
+        ))}
       </div>
     </div>
   );
