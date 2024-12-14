@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import CFGDemo from './components/CFGDemo';
+import { handleRunJar } from './components/RunJarButtons';
 import ButtonDiv from './components/button';
 import cfgimage from './assets/cfg.png';
 import dfaimage from './assets/dfa.png';
@@ -12,18 +13,20 @@ function App() {
   const [currentView, setCurrentView] = useState('menu');
 
   const projects = [
-    { name: 'DFA/NFA', imageSrc: dfaimage, url: 'https://bolt.new/~/vitejs-vite-ahzmytnm' },
-    { name: 'PDA', imageSrc: pdaimage, url: 'https://chatgpt.com/c/67592b76-9f3c-800f-88ec-bc93a8de6ce4' },
-    { name: 'CFG', imageSrc: cfgimage , isInternal: true },
-    { name: 'TURING', imageSrc: turingimage, url: 'https://example.com/turing' },
-    { name: 'TOWER OF HANOI', imageSrc: hanoiimage, url: 'https://example.com/hanoi' },
+    { name: 'DFA/NFA', imageSrc: dfaimage, isInternal: true, jarNumber: 1 },
+    { name: 'PDA', imageSrc: pdaimage, isInternal: true, jarNumber: 2 },
+    { name: 'CFG', imageSrc: cfgimage, isInternal: true },
+    { name: 'TURING', imageSrc: turingimage, isInternal: true, jarNumber: 3 },
+    { name: 'TOWER OF HANOI', imageSrc: hanoiimage, isInternal: true, jarNumber: 4 },
   ];
 
   const handleClick = (project) => {
     if (project.isInternal) {
-      setCurrentView(project.name.toLowerCase());
-    } else if (project.url) {
-      window.open(project.url, '_blank');
+      if (project.jarNumber) {
+        handleRunJar(project.jarNumber);
+      } else {
+        setCurrentView(project.name.toLowerCase());
+      }
     }
   };
 
@@ -40,17 +43,23 @@ function App() {
         <p>CST FINAL PROJECT</p>
       </header>
 
-      <div className="grid-container">
-        {projects.map((project) => (
-          <ButtonDiv
-            key={project.name}
-            imageSrc={project.imageSrc}
-            type={project.name}
-            handleClick={() => handleClick(project)}
-            className={project.name === 'CFG' ? 'span-2' : ''}
-          />
-        ))}
-      </div>
+      {currentView === 'menu' ? (
+        <div className="grid-container">
+          {projects.map((project) => (
+            <ButtonDiv
+              key={project.name}
+              imageSrc={project.imageSrc}
+              type={project.name}
+              handleClick={() => handleClick(project)}
+              className={project.name === 'CFG' ? 'span-2' : ''}
+            />
+          ))}
+        </div>
+      ) : (
+        <div>
+          <button onClick={handleBack}>Back</button>
+        </div>
+      )}
     </div>
   );
 }
