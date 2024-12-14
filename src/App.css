@@ -68,6 +68,7 @@ html, body {
 }
 
 .grid-item:hover {
+  display: flex;
   transform: scale(1.05);
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.718);
   transition: .5s ease;
@@ -91,6 +92,119 @@ html, body {
   grid-column: 1 / -1;
   width: 300px;
   margin: 0 auto;
+}
+
+.button-image {
+  width: 210px;
+  height: 400px;
+  object-fit: cover;
+}
+
+
+.navigation-bar {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.back-button {
+  background-color: #555555;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #666666;
+}
+
+.palindrome-checker {
+  min-height: auto;
+  background-color: #4a4a4a;
+  color: white;
+  padding: 2rem;
+}
+
+.palindrome-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.palindrome-input textarea {
+  width: 768px;
+  background-color: #333333;
+  color: white;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  padding: 1rem;
+  font-family: monospace;
+  margin-bottom: 1rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controls button {
+  background-color: #555555;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: #666666;
+}
+
+.palindrome-output {
+  background-color: #333333;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.palindrome-output h2 {
+  margin-top: 0;
+}
+
+.palindrome-output ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.palindrome-output span {
+  font-weight: bold;
+}
+
+.palindrome-output li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #444444;
+}
+
+.palindrome-output li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .palindrome-checker {
+    padding: 1rem;
+  }
+
+  .palindrome-content {
+    padding: 0.5rem;
+  }
+
+  .controls button {
+    padding: 0.5rem;
+  }
 }
 
 @media (max-width: 768px) {
