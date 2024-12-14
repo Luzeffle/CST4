@@ -3,16 +3,20 @@ import './App.css';
 import CFGDemo from './components/CFGDemo';
 import ButtonDiv from './components/button';
 import cfgimage from './assets/cfg.png';
+import dfaimage from './assets/dfa.png';
+import pdaimage from './assets/pda.png';
+import turingimage from './assets/turing.png';
+import hanoiimage from './assets/toh.png';
 
 function App() {
   const [currentView, setCurrentView] = useState('menu');
 
   const projects = [
-    { name: 'DFA/NFA', url: 'https://bolt.new/~/vitejs-vite-ahzmytnm' },
-    { name: 'PDA', url: 'https://chatgpt.com/c/67592b76-9f3c-800f-88ec-bc93a8de6ce4' },
+    { name: 'DFA/NFA', imageSrc: dfaimage, url: 'https://bolt.new/~/vitejs-vite-ahzmytnm' },
+    { name: 'PDA', imageSrc: pdaimage, url: 'https://chatgpt.com/c/67592b76-9f3c-800f-88ec-bc93a8de6ce4' },
     { name: 'CFG', imageSrc: cfgimage , isInternal: true },
-    { name: 'TURING', url: 'https://example.com/turing' },
-    { name: 'TOWER OF HANOI', url: 'https://example.com/hanoi' },
+    { name: 'TURING', imageSrc: turingimage, url: 'https://example.com/turing' },
+    { name: 'TOWER OF HANOI', imageSrc: hanoiimage, url: 'https://example.com/hanoi' },
   ];
 
   const handleClick = (project) => {
