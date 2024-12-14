@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 const runJar = (jarPath, res) => {
-  const command = `start javaw -jar "${jarPath}"`;
+  const command = `start /B javaw -jar "${jarPath}"`;
   console.log(`Executing command: ${command}`);
   
   exec(command, (error, stdout, stderr) => {
