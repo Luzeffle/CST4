@@ -2,7 +2,7 @@ import React from 'react';
 
 export const handleRunJar = async (jarNumber) => {
   try {
-    const response = await fetch(`http://localhost:3000/run-jar${jarNumber}`);
+    const response = await fetch(`http://localhost:3001/run-jar${jarNumber}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
