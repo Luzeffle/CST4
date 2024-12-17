@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const { exec } = require('child_process');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const runJar = (jarPath, res) => {
   const command = `javaw -jar "${jarPath}"`;
@@ -29,7 +29,7 @@ app.get('/run-jar1', (req, res) => {
 });
 
 app.get('/run-jar3', (req, res) => {
-  const jarPath = path.join(__dirname, 'jars/turingmachine1.jar');
+  const jarPath = path.join(__dirname, 'jars/TuringMachine-1.0-SNAPSHOT-all.jar');
   console.log(`Accessing JAR file at: ${jarPath}`);
   runJar(jarPath, res);
 });
