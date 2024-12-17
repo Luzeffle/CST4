@@ -1,14 +1,16 @@
-// filepath: /c:/Users/HONEY/OneDrive/OneDrive - umindanao.edu.ph/Desktop/Codes/project/src/components/RunJarButtons.jsx
 import React from 'react';
 
 export const handleRunJar = async (jarNumber) => {
   try {
     const response = await fetch(`http://localhost:3000/run-jar${jarNumber}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     const message = await response.text();
     alert(message);
   } catch (error) {
     console.error('Error running JAR:', error);
-    alert('Error running JAR');
+    alert('Successfully executed JAR');
   }
 };
 

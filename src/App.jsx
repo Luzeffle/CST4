@@ -15,9 +15,9 @@ function App() {
   const projects = [
     { name: 'DFA/NFA', imageSrc: dfaimage, isInternal: true, jarNumber: 1 },
     { name: 'CFG', imageSrc: cfgimage, isInternal: true },
-    { name: 'PDA', imageSrc: pdaimage, isInternal: true, jarNumber: 2 },
+    { name: 'PDA', imageSrc: pdaimage, link: 'https://pda-lemon.vercel.app/' },
     { name: 'TURING', imageSrc: turingimage, isInternal: true, jarNumber: 3 },
-    { name: 'TOWER OF HANOI', imageSrc: hanoiimage, isInternal: true, jarNumber: 4 },
+    { name: 'TOWER OF HANOI', imageSrc: hanoiimage, link: 'https://html-starter-tan-gamma.vercel.app/' },
   ];
 
   const handleClick = (project) => {
@@ -50,6 +50,7 @@ function App() {
               key={project.name}
               imageSrc={project.imageSrc}
               type={project.name}
+              link={project.link}
               handleClick={() => handleClick(project)}
               className={project.name === 'CFG' ? 'span-2' : ''}
             />
