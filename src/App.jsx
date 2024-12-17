@@ -14,8 +14,8 @@ function App() {
 
   const projects = [
     { name: 'DFA/NFA', imageSrc: dfaimage, isInternal: true, jarNumber: 1 },
-    { name: 'PDA', imageSrc: pdaimage, isInternal: true, jarNumber: 2 },
     { name: 'CFG', imageSrc: cfgimage, isInternal: true },
+    { name: 'PDA', imageSrc: pdaimage, isInternal: true, jarNumber: 2 },
     { name: 'TURING', imageSrc: turingimage, isInternal: true, jarNumber: 3 },
     { name: 'TOWER OF HANOI', imageSrc: hanoiimage, isInternal: true, jarNumber: 4 },
   ];
