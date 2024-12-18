@@ -23,7 +23,7 @@ const runJar = (jarPath, res) => {
 };
 
 app.get('/run-jar1', (req, res) => {
-  const jarPath = path.join(__dirname, 'jars/file1.jar');
+  const jarPath = path.join(__dirname, 'jars/dist/CCE104.jar');
   console.log(`Accessing JAR file at: ${jarPath}`);
   runJar(jarPath, res);
 });
